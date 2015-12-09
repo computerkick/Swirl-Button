@@ -1,0 +1,68 @@
+<html>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Erica+One' rel='stylesheet' type='text/css'>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <style>
+        body{
+            background-color: whitesmoke;
+            transition:  background-color 1s;
+            -webkit-transition: background-color 1s;            
+        }
+        .button{
+            font-family: 'Erica One', cursive;
+            width:150px;
+            height:50px;
+            display:block;
+            background-color:cadetblue;
+            position: relative;
+            outline: none;
+            border:none;
+            border-radius: 15px;
+            -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.46);
+            -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.46);
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.46);
+            margin:50px auto;
+            transition:  background-color 1s, transform 1s;
+            -webkit-transition: background-color 1s, transform 1s;
+        }
+        .text{
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform: translateX(-50%) translateY(-50%);
+            font-size: 1.9em;
+            color:white;
+            text-shadow: 1px 1px 1px black;
+        }
+        .button:hover{
+            background-color: cornflowerblue;
+            transition:  background-color 1s, transform 1s;
+            -webkit-transition: background-color 1s, transform 1s;            
+        }
+        .hidden {
+            display:none;
+        }
+    </style>
+</head>
+<body>
+        <button class="button">
+            <div class="text">Button</div>
+        </button>
+</body>
+    <script>
+        
+        function resetButton(){
+            $(".button").fadeIn("slow");
+            $(".button").css("transform","rotate(0deg)");
+            $("body").css("background-color", "whitesmoke")
+        }
+        
+        $(".button").click(function(){
+            $(this).css("transform","rotate(180deg)");
+            $("body").css("background-color", "black")
+            $(this).fadeOut("slow");
+            
+            setTimeout(resetButton, 3000);
+        })
+    </script>
+</html>
